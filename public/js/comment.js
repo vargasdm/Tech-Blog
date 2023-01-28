@@ -28,50 +28,23 @@ document
 .querySelector('.comment-form')
 .addEventListener('submit', submitComment);
 
-const commentPageVisible = async (event) => {
-    event.preventDefault();
-    let commentPartial = document.getElementsByClassName('none');
-    let makeCommentBtn = document.getElementsById('comment-btn');
-  
-  visible = !visible
-
-  if (visible) {
-    commentPartial.classList.remove('none')
-    makeCommentBtn.classList.add("none");
-  } else {
-    makeCommentBtn.classList.remove('none')
-    commentPartial.classList.add("none");
-  }
-
-};
-
-document
-.querySelector('#comment-btn')
-.addEventListener('click', commentPageVisible);
-
-// const newFormHandler = async (event) => {
+// const commentPageVisible = async (event) => {
 //     event.preventDefault();
+//     let commentPartial = document.getElementsByClassName('none');
+//     let makeCommentBtn = document.getElementsById('comment-btn');
   
-//     const name = document.querySelector('#project-name').value.trim();
-//     const needed_funding = document.querySelector('#project-funding').value.trim();
-//     const description = document.querySelector('#project-desc').value.trim();
-  
-//     if (name && needed_funding && description) {
-//       const response = await fetch(`/api/projects`, {
-//         method: 'POST',
-//         body: JSON.stringify({ name, needed_funding, description }),
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//       });
-  
-//       if (response.ok) {
-//         document.location.replace('/profile');
-//       } else {
-//         alert('Failed to create project');
-//       }
-//     }
-//   };
+//   visible = !visible
+
+//   if (visible) {
+//     commentPartial.classList.remove('none')
+//     makeCommentBtn.classList.add("none");
+//   } else {
+//     makeCommentBtn.classList.remove('none')
+//     commentPartial.classList.add("none");
+//   }
+
+// };
+
   
 //   const delButtonHandler = async (event) => {
 //     if (event.target.hasAttribute('data-id')) {
