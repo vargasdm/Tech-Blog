@@ -17,7 +17,7 @@ const submitComment = async (event) => {
 
         if (response.ok) {
             // If successful, redirect the browser to post that you commented on page
-            document.location.replace('/');
+            location.reload()
         } else {
             alert(response.statusText);
         }
@@ -28,22 +28,34 @@ document
 .querySelector('.comment-form')
 .addEventListener('submit', submitComment);
 
-// const commentPageVisible = async (event) => {
+// THIS LOGIC MAKES A POST NOT A COMMENT
+// const submitComment = async (event) => {
 //     event.preventDefault();
-//     let commentPartial = document.getElementsByClassName('none');
-//     let makeCommentBtn = document.getElementsById('comment-btn');
-  
-//   visible = !visible
 
-//   if (visible) {
-//     commentPartial.classList.remove('none')
-//     makeCommentBtn.classList.add("none");
-//   } else {
-//     makeCommentBtn.classList.remove('none')
-//     commentPartial.classList.add("none");
-//   }
+//     // Collect values from the comment form
+//     const title = document.querySelector('#comment-title').value.trim();
+//     const content = document.querySelector('#comment-content').value.trim();
 
+//     if (title && content) {
+//         // Send a POST request to the API endpoint
+//         const response = await fetch('/api/post/', {
+//             method: 'POST',
+//             body: JSON.stringify({ title, content }),
+//             headers: { 'Content-Type': 'application/json' },
+//         });
+
+//         if (response.ok) {
+//             // If successful, redirect the browser to post that you commented on page
+//             document.location.replace('/');
+//         } else {
+//             alert(response.statusText);
+//         }
+//     }
 // };
+
+document
+.querySelector('.comment-form')
+.addEventListener('submit', submitComment);
 
   
 //   const delButtonHandler = async (event) => {
