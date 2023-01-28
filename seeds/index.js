@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection');
-const { User, Project } = require('../models');
+const { User, Post } = require('../models');
 
 const userData = require('./userData.json');
 const postData = require('./postData.json');
@@ -11,7 +11,8 @@ const seedDatabase = async () => {
         individualHooks: true,
         returning: true,
     });
-
+// I dont know what this is doing ?????
+// do I want it to give every post a random user id?
     for (const post of postData) {
         await Post.create({
             ...post,
