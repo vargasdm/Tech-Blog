@@ -10,6 +10,7 @@ router.get('/', async (req, res) => {
           {
             model: User,
             attributes: ['username'],
+
           },
         ],
       });
@@ -34,6 +35,8 @@ router.get('/', async (req, res) => {
           {
             model: User,
             attributes: ['username'],
+            model: Comment,
+            attributes: ['post_id']
           },
         ],
       });
