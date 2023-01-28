@@ -1703,4 +1703,13 @@
       align-content: center;
     }
   }
+
+  .none {
+    visibility: hidden;
+ }
+
+
+ #comment-btn {
+  text-decoration: none;
+ }
   

@@ -1,3 +1,5 @@
+let visible = false;
+
 const submitComment = async (event) => {
     event.preventDefault();
 
@@ -26,33 +28,26 @@ document
 .querySelector('.comment-form')
 .addEventListener('submit', submitComment);
 
-// const commentPage = async (event) => {
-//     event.preventDefault();
+const commentPageVisible = async (event) => {
+    event.preventDefault();
+    let commentPartial = document.getElementsByClassName('none');
+    let makeCommentBtn = document.getElementsById('comment-btn');
+  
+  visible = !visible
 
-//     // Collect values from the comment form
-//     const title = document.querySelector('#comment-title').value.trim();
-//     const content = document.querySelector('#comment-content').value.trim();
+  if (visible) {
+    commentPartial.classList.remove('none')
+    makeCommentBtn.classList.add("none");
+  } else {
+    makeCommentBtn.classList.remove('none')
+    commentPartial.classList.add("none");
+  }
 
-//     if (title && content) {
-//         // Send a POST request to the API endpoint
-//         const response = await fetch('/api/post/', {
-//             method: 'POST',
-//             body: JSON.stringify({ title, content }),
-//             headers: { 'Content-Type': 'application/json' },
-//         });
+};
 
-//         if (response.ok) {
-//             // If successful, redirect the browser to post that you commented on page
-//             document.location.replace('/');
-//         } else {
-//             alert(response.statusText);
-//         }
-//     }
-// };
-
-// document
-// .querySelector('#comment-btn')
-// .addEventListener('click', submitComment);
+document
+.querySelector('#comment-btn')
+.addEventListener('click', commentPageVisible);
 
 // const newFormHandler = async (event) => {
 //     event.preventDefault();
