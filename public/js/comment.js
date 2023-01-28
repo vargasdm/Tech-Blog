@@ -9,7 +9,7 @@ const submitComment = async (event) => {
 
     if (title && content) {
         // Send a POST request to the API endpoint
-        const response = await fetch('/api/post/', {
+        const response = await fetch('/api/comment/', {
             method: 'POST',
             body: JSON.stringify({ title, content }),
             headers: { 'Content-Type': 'application/json' },
