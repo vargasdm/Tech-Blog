@@ -40,13 +40,13 @@ router.get('/', async (req, res) => {
           },
         ],
       });
-  
+
       const post = postData.get({ plain: true });
   
       res.render('post', {
         ...post,
         // do I want this so that users have to be logged in to see the full post
-        logged_in: req.session.logged_in
+        logged_in: req.session.logged_in,
       });
     } catch (err) {
       res.status(500).json(err);

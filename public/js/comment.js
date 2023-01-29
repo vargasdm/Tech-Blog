@@ -1,23 +1,25 @@
-let visible = false;
-
 const submitComment = async (event) => {
     event.preventDefault();
-
+    var foo = "{{id}}";
+    console.log(foo + `id here`);
     // Collect values from the comment form
     const title = document.querySelector('#comment-title').value.trim();
     const content = document.querySelector('#comment-content').value.trim();
-
+    const post_id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+      ];
     if (title && content) {
         // Send a POST request to the API endpoint
-        const response = await fetch('/api/comment/', {
+        const response = await fetch('/api/comment/', { 
             method: 'POST',
-            body: JSON.stringify({ title, content }),
+            body: JSON.stringify({ title, content, post_id}),
             headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
-            // If successful, redirect the browser to post that you commented on page
+            // If successful, reload the page
             location.reload()
+            console.log('the page was refreshed')
         } else {
             alert(response.statusText);
         }

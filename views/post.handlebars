@@ -1,6 +1,7 @@
 <div class="text-center">
     <h2>{{title}}</h2>
     <p>{{content}}</p>
+    <p>{{x}}</p>
     <p>Created by {{user.username}} on {{format_date date_created}}</p>
     <div>
         {{> comments}}
@@ -9,3 +10,4 @@
         {{> comment-form}}
     </div>
 </div>
+<script data="{{title}}" src="/js/comment.js"></script>
