@@ -32,7 +32,7 @@ router.post('/', withAuth, async (req, res) => {
       res.render('comment', {
           ...comment,
           // do I want this so that users have to be logged in to see the full post
-          logged_in: req.session.loggedIn,
+          loggedIn: req.session.loggedIn,
         });
     } catch (err) {
       res.status(500).json(err);
