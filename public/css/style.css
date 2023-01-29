@@ -1704,9 +1704,9 @@
     }
   }
 
-  .none {
+  /* .none {
     visibility: hidden;
- }
+ } */
 
 
  #comment-btn, #create-post-btn {

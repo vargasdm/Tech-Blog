@@ -16,7 +16,7 @@ router.get('/', withAuth, async (req, res) => {
     console.log(posts)
 
     res.render('dashboard', {
-      ...posts,
+      posts,
       logged_in: req.session.loggedIn,
     });
   } catch (err) {
@@ -30,7 +30,6 @@ router.post('/new', withAuth, async (req, res) => {
     const newPost = await Post.create({
       ...req.body,
       post_id: req.body.post_id,
-      user_id: req.session.user_id,
     });
 
     res.status(200).json(newPost);

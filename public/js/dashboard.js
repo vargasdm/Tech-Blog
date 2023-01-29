@@ -1,12 +1,15 @@
 // let visible = false;
-// var element = document.getElementByClass("none");
+// let form = document.getElementByClass("none");
+// let makePostBtn = document.getElementById("create-post-btn");
 
 // document.getElementById("create-post-btn").addEventListener("click", function() {
 //     if (!visible) {
-//         element.classList.remove("none");
+//         form.classList.remove("none");
+//         makePostBtn.classList.add("none");
 //         visible = !visible;
 //     } else {
-//         element.classList.add("none");
+//         form.classList.add("none");
+//         makePostBtn.classList.remove("none");
 //         visible = !visible;
 //     }
 //   });
@@ -17,14 +20,12 @@ const submitPost = async (event) => {
     // Collect values from the post form
     const title = document.querySelector('#post-title').value.trim();
     const content = document.querySelector('#post-content').value.trim();
-    // const user_id = window.location.toString().split('/')[
-    //     window.location.toString().split('/').length - 1
-    //   ];
+
     if (title && content) {
         // Send a POST request to the API endpoint
-        const response = await fetch('/dashboard/new/', { 
+        const response = await fetch('/dashboard/new/', {
             method: 'POST',
-            body: JSON.stringify({ title, content, user_id}),
+            body: JSON.stringify({ title, content, }),
             headers: { 'Content-Type': 'application/json' },
         });
 
@@ -39,58 +40,34 @@ const submitPost = async (event) => {
 };
 
 document
-.querySelector('post-form')
-.addEventListener('submit', submitComment);
+    .querySelector('post-form')
+    .addEventListener('submit', submitPost);
 
 
 
-// THIS LOGIC MAKES A POST NOT A COMMENT
-// const submitComment = async (event) => {
-//     event.preventDefault();
+const delButtonHandler = async (event) => {
+    
+    document.location.replace(`dashboard/edit/${id}`);
+    const id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+    ];
+    document.location.replace(`/dashboard`);
+    // const id = event.target.getAttribute('data-id');
 
-//     // Collect values from the comment form
-//     const title = document.querySelector('#comment-title').value.trim();
-//     const content = document.querySelector('#comment-content').value.trim();
 
-//     if (title && content) {
-//         // Send a POST request to the API endpoint
-//         const response = await fetch('/api/post/', {
-//             method: 'POST',
-//             body: JSON.stringify({ title, content }),
-//             headers: { 'Content-Type': 'application/json' },
-//         });
+    const response = await fetch(`/${id}`, {
+        method: 'DELETE',
+    });
 
-//         if (response.ok) {
-//             // If successful, redirect the browser to post that you commented on page
-//             document.location.replace('/');
-//         } else {
-//             alert(response.statusText);
-//         }
-//     }
-// };
+    if (response.ok) {
+        location.reload()
+        console.log('the page was refreshed')
+    } else {
+        alert('Failed to delete project');
+    }
+};
+
 
 document
-.querySelector('.comment-form')
-.addEventListener('submit', submitComment);
-
-  
-//   const delButtonHandler = async (event) => {
-//     if (event.target.hasAttribute('data-id')) {
-//       const id = event.target.getAttribute('data-id');
-  
-//       const response = await fetch(`/api/projects/${id}`, {
-//         method: 'DELETE',
-//       });
-  
-//       if (response.ok) {
-//         document.location.replace('/profile');
-//       } else {
-//         alert('Failed to delete project');
-//       }
-//     }
-//   };
-  
-  
-//   document
-//     .querySelector('.project-list')
-//     .addEventListener('click', delButtonHandler);
+    .querySelector('.project-list')
+    .addEventListener('click', delButtonHandler);
