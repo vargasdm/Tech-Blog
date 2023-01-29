@@ -12,11 +12,11 @@ router.get('/', withAuth, async (req, res) => {
 
     console.log({postData})
 
-    const post = postData.map((post)=>post.get({ plain: true }));
-    console.log(post)
+    const posts = postData.map((post)=>post.get({ plain: true }));
+    console.log(posts)
 
     res.render('dashboard', {
-      ...post,
+      ...posts,
       logged_in: req.session.loggedIn,
     });
   } catch (err) {
