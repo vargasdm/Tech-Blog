@@ -28,31 +28,7 @@ router.get('/', async (req, res) => {
     }
   });
 
-  router.get('/post/:id', async (req, res) => {
-    console.log(req.params.id);
-    try {
-      const postData = await Post.findByPk(req.params.id, {
-        include: [
-          User,
-          {
-            model: Comment,
-            include: [User],
-          },
-        ],
-      });
 
-      const post = postData.get({ plain: true });
-      console.log(post)
-
-      res.render('post', {
-        ...post,
-        // do I want this so that users have to be logged in to see the full post
-        logged_in: req.session.logged_in,
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
 
   router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
