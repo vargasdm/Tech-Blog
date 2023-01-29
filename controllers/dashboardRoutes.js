@@ -3,19 +3,23 @@ const { Comment, Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
-  console.log(req.session)
+  console.log({line6:req.session,user_id:req.session.user_id})
   try {
-    const postData = await Post.findall(req.session.id, {
-      include: [
-        User,
-        {
-          model: Comment,
-          include: [User],
-        },
-      ],
+    const postData = await Post.findAll(/*req.session.id, */{
+        where:{user_id:req.session.user_id}
+      // include: [
+      //   User,
+      //   {
+      //     model: Comment,
+      //     include: [User],
+      //     where: {id:req.session.user_id}
+      //   },
+      // ],
     });
 
-    const post = postData.get({ plain: true });
+    console.log({postData})
+
+    const post = postData.map((post)=>post.get({ plain: true }));
     console.log(post)
 
     res.render('dashboard', {
@@ -23,6 +27,7 @@ router.get('/', withAuth, async (req, res) => {
       logged_in: req.session.loggedIn,
     });
   } catch (err) {
+    console.log({error:err})
     res.status(500).json(err);
   }
 });
