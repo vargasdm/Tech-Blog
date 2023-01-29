@@ -1,8 +1,8 @@
-{{#each posts as |post| }}
+{{#each posts as |posts| }}
 <div class="row mb-4 project">
     <div class="col-md-5">
         <h2>
-            <a href="api/post/{{id}}">{{title}}</a>
+            <p>{{title}}</p>
         </h2>
     </div>
     <div class="col-md-7">
@@ -12,8 +12,6 @@
     </div>
 </div>
 {{/each}}
-<div class = "none">
-    {{> post-form}}
-</div>
-<button id="create-post-btn">Create a post</button>
-<script src="/js/dashboard.js"></script>
+<button id="create-post-btn">
+    <a href="api/dashboard/new">Create a post</a>
+</button>

@@ -1,15 +1,15 @@
-let visible = false;
-var element = document.getElementByClass("none");
+// let visible = false;
+// var element = document.getElementByClass("none");
 
-document.getElementById("create-post-btn").addEventListener("click", function() {
-    if (!visible) {
-        element.classList.remove("none");
-        visible = !visible;
-    } else {
-        element.classList.add("none");
-        visible = !visible;
-    }
-  });
+// document.getElementById("create-post-btn").addEventListener("click", function() {
+//     if (!visible) {
+//         element.classList.remove("none");
+//         visible = !visible;
+//     } else {
+//         element.classList.add("none");
+//         visible = !visible;
+//     }
+//   });
 
 const submitPost = async (event) => {
     event.preventDefault();
@@ -17,12 +17,12 @@ const submitPost = async (event) => {
     // Collect values from the post form
     const title = document.querySelector('#post-title').value.trim();
     const content = document.querySelector('#post-content').value.trim();
-    const user_id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-      ];
+    // const user_id = window.location.toString().split('/')[
+    //     window.location.toString().split('/').length - 1
+    //   ];
     if (title && content) {
         // Send a POST request to the API endpoint
-        const response = await fetch('/api/post/', { 
+        const response = await fetch('/api/new/', { 
             method: 'POST',
             body: JSON.stringify({ title, content, user_id}),
             headers: { 'Content-Type': 'application/json' },
