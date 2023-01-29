@@ -1,29 +1,15 @@
-// let visible = false;
-// let form = document.getElementByClass("none");
-// let makePostBtn = document.getElementById("create-post-btn");
 
-// document.getElementById("create-post-btn").addEventListener("click", function() {
-//     if (!visible) {
-//         form.classList.remove("none");
-//         makePostBtn.classList.add("none");
-//         visible = !visible;
-//     } else {
-//         form.classList.add("none");
-//         makePostBtn.classList.remove("none");
-//         visible = !visible;
-//     }
-//   });
-
-const submitPost = async (event) => {
+console.log("test");
+async function submitPost (event)  {
     event.preventDefault();
 
     // Collect values from the post form
     const title = document.querySelector('#post-title').value.trim();
     const content = document.querySelector('#post-content').value.trim();
-
+    console.log(title);
     if (title && content) {
         // Send a POST request to the API endpoint
-        const response = await fetch('/dashboard/new/', {
+        const response = await fetch('/api/post', {
             method: 'POST',
             body: JSON.stringify({ title, content, }),
             headers: { 'Content-Type': 'application/json' },
@@ -41,7 +27,7 @@ const submitPost = async (event) => {
 
 document
     .getElementById('post-submit-btn')
-    .addEventListener('submit', submitPost);
+    .addEventListener('click', submitPost);
 
 
 

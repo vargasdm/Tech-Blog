@@ -35,18 +35,19 @@ router.get('/new', withAuth, async (req, res) => {
   }
 });
 
-router.post('/new', withAuth, async (req, res) => {
-  try {
-    const newPost = await Post.create({
-      ...req.body,
-      post_id: req.body.post_id,
-    });
+// post request for post
+// router.post('/new', withAuth, async (req, res) => {
+//   try {
+//     const newPost = await Post.create({
+//       ...req.body,
+//       post_id: req.body.post_id,
+//     });
 
-    res.status(200).json(newPost);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+//     res.status(200).json(newPost);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 router.put('/edit/:id', withAuth, async (req, res) => {
   try {
