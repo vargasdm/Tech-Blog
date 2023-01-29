@@ -22,7 +22,7 @@ const submitPost = async (event) => {
     //   ];
     if (title && content) {
         // Send a POST request to the API endpoint
-        const response = await fetch('/api/new/', { 
+        const response = await fetch('/dashboard/new/', { 
             method: 'POST',
             body: JSON.stringify({ title, content, user_id}),
             headers: { 'Content-Type': 'application/json' },
