@@ -20,7 +20,7 @@ router.get('/', withAuth, async (req, res) => {
 
     res.render('dashboard', {
       ...post,
-      loggedin: req.session.loggedin,
+      loggedin: req.session.loggedIn,
     });
   } catch (err) {
     res.status(500).json(err);
