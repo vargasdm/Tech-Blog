@@ -25,6 +25,16 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
+// for post-form.handlebars
+router.get('/new', withAuth, async (req, res) => {
+  try {
+    res.render('post-form');
+  } catch (err) {
+    console.log({error:err})
+    res.status(500).json(err);
+  }
+});
+
 router.post('/new', withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({

@@ -31,7 +31,7 @@ const submitPost = async (event) => {
 
         if (response.ok) {
             // If successful, reload the page
-            location.reload()
+            document.location.replace(`/dashboard`);
             console.log('the page was refreshed')
         } else {
             alert(response.statusText);
@@ -40,7 +40,7 @@ const submitPost = async (event) => {
 };
 
 document
-    .querySelector('post-form')
+    .getElementById('post-submit-btn')
     .addEventListener('submit', submitPost);
 
 
