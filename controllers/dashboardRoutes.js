@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, async (req, res) => {
     console.log(req.session)
     try {
-      const postData = await Post.findByPk(req.session.user_id, {
+      const postData = await Post.findall(req.session.id, {
         include: [
           User,
           {
