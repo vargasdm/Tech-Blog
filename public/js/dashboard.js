@@ -68,6 +68,6 @@ const delButtonHandler = async (event) => {
 };
 
 
-document
-    .querySelector('.project-list')
-    .addEventListener('click', delButtonHandler);
+// document
+//     .querySelector('.project-list')
+//     .addEventListener('click', delButtonHandler);
