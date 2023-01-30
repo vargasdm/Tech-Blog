@@ -35,7 +35,7 @@ router.get('/new', withAuth, async (req, res) => {
 });
 
 // for update-form.handlebars
-router.get('/edit', withAuth, async (req, res) => {
+router.get('/edit/:id', withAuth, async (req, res) => {
   try {
     res.render('update-form');
   } catch (err) {

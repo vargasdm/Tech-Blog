@@ -3,6 +3,10 @@ const updateButtonHandler = async (event) => {
 
     const title = document.querySelector('#updated-title').value.trim();
     const content = document.querySelector('#updated-content').value.trim();
+    // const post_id =  window.location.toString().split('/')[
+    //     window.location.toString().split('/').length - 1
+    //   ];
+    console.log("test")
 
     if (event.target.hasAttribute('data-id')) {
         if (title && content) {
@@ -16,8 +20,12 @@ const updateButtonHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/dashboard');
         } else {
-            alert('Failed to delete project');
+            alert('Failed to update project');
         }
     };
 };
 };
+
+document
+    .getElementById('update-post-submit-btn')
+    .addEventListener('click', updateButtonHandler);

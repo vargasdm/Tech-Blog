@@ -23,9 +23,9 @@ for (let i = 0; i < deleteBtns.length; i++) {
 }
 console.log(deleteBtns);
 
-let updateBtns = document.querySelectorAll('.update-btn')
-for (let i = 0; i < updateBtns.length; i++) {
-    console.log(updateBtns[i]);
-    updateBtns[i].addEventListener('click', updateButtonHandler);
-}
-console.log(updateBtns);
+// let updateBtns = document.querySelectorAll('.update-btn')
+// for (let i = 0; i < updateBtns.length; i++) {
+//     console.log(updateBtns[i]);
+//     updateBtns[i].addEventListener('click', updateButtonHandler);
+// }
+// console.log(updateBtns);
