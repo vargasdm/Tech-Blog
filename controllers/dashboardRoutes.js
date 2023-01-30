@@ -37,7 +37,10 @@ router.get('/new', withAuth, async (req, res) => {
 // for update-form.handlebars
 router.get('/edit/:id', withAuth, async (req, res) => {
   try {
-    res.render('update-form');
+    const postData = await Post.findByPk(req.params.id);
+    // Serialize data so the template can read it
+    const posts = postData.get({ plain: true });
+    res.render('update-form', {posts, logged_in: req.session.loggedIn});
   } catch (err) {
     console.log({error:err})
     res.status(500).json(err);
