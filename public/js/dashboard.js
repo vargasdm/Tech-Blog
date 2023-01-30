@@ -1,74 +1,24 @@
 
-console.log("test");
-async function submitPost (event)  {
+
+const delButtonHandler = async (event) => {
     event.preventDefault();
-
-    // Collect values from the post form
-    const title = document.querySelector('#post-title').value.trim();
-    const content = document.querySelector('#post-content').value.trim();
-
-    console.log(title);
-    if (title && content) {
-        // Send a POST request to the API endpoint
-        const response = await fetch('/api/post', {
-            method: 'POST',
-            body: JSON.stringify({ title, content}),
-            headers: { 'Content-Type': 'application/json' },
+    if (event.target.hasAttribute('data-id')) {
+        const id = event.target.getAttribute('data-id');
+        const response = await fetch(`/dashboard/${id}`, {
+            method: 'DELETE',
         });
 
         if (response.ok) {
-            // If successful, reload the page
-            document.location.replace(`/dashboard`);
-            console.log('the page was refreshed')
+            document.location.replace('/dashboard');
         } else {
-            alert(response.statusText);
+            alert('Failed to delete project');
         }
     }
 };
 
-document
-    .getElementById('post-submit-btn')
-    .addEventListener('click', submitPost);
-
-
-
-const delButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
-        const id = event.target.getAttribute('data-id');
-        console.log(test)
-        const response = await fetch(`/${id}`, {
-          method: 'DELETE',
-        });
-    
-        if (response.ok) {
-          document.location.replace('/profile');
-        } else {
-          alert('Failed to delete project');
-        }
-      }
-    };
-    
-    // document.location.replace(`dashboard/edit/${id}`);
-    // const id = window.location.toString().split('/')[
-    //     window.location.toString().split('/').length - 1
-    // ];
-    // document.location.replace(`/dashboard`);
-    // // const id = event.target.getAttribute('data-id');
-
-
-    // const response = await fetch(`/dashboard/${id}`, {
-    //     method: 'DELETE',
-    // });
-
-    // if (response.ok) {
-    //     document.location.replace(`/dashboard`);
-    //     console.log('the page was refreshed')
-    // } else {
-    //     alert('Failed to delete project');
-    // }
-
-
-
-document
-    .getElementByClass('delete-btn')
-    .addEventListener('click', delButtonHandler);
+let deleteBtns = document.querySelectorAll('.delete-btn')
+for (let i = 0; i < deleteBtns.length; i++) {
+    console.log(deleteBtns[i]);
+    deleteBtns[i].addEventListener('click', delButtonHandler);
+}
+console.log(deleteBtns);

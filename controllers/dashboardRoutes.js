@@ -28,26 +28,22 @@ router.get('/', withAuth, async (req, res) => {
 router.get('/new', withAuth, async (req, res) => {
   try {
     res.render('post-form');
-    // req.session.user_id = userData;
   } catch (err) {
     console.log({error:err})
     res.status(500).json(err);
   }
 });
 
-// post request for post
-// router.post('/new', withAuth, async (req, res) => {
-//   try {
-//     const newPost = await Post.create({
-//       ...req.body,
-//       post_id: req.body.post_id,
-//     });
+// for update-form.handlebars
+router.get('/edit', withAuth, async (req, res) => {
+  try {
+    res.render('update-form');
+  } catch (err) {
+    console.log({error:err})
+    res.status(500).json(err);
+  }
+});
 
-//     res.status(200).json(newPost);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
 
 router.put('/edit/:id', withAuth, async (req, res) => {
   try {
