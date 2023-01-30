@@ -28,7 +28,7 @@ router.get('/', withAuth, async (req, res) => {
 router.get('/new', withAuth, async (req, res) => {
   try {
     res.render('post-form');
-    req.session.user_id = userData;
+    // req.session.user_id = userData;
   } catch (err) {
     console.log({error:err})
     res.status(500).json(err);
