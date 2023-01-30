@@ -33,28 +33,42 @@ document
 
 
 const delButtonHandler = async (event) => {
+    if (event.target.hasAttribute('data-id')) {
+        const id = event.target.getAttribute('data-id');
+        console.log(test)
+        const response = await fetch(`/${id}`, {
+          method: 'DELETE',
+        });
     
-    document.location.replace(`dashboard/edit/${id}`);
-    const id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
-    document.location.replace(`/dashboard`);
-    // const id = event.target.getAttribute('data-id');
+        if (response.ok) {
+          document.location.replace('/profile');
+        } else {
+          alert('Failed to delete project');
+        }
+      }
+    };
+    
+    // document.location.replace(`dashboard/edit/${id}`);
+    // const id = window.location.toString().split('/')[
+    //     window.location.toString().split('/').length - 1
+    // ];
+    // document.location.replace(`/dashboard`);
+    // // const id = event.target.getAttribute('data-id');
 
 
-    const response = await fetch(`/${id}`, {
-        method: 'DELETE',
-    });
+    // const response = await fetch(`/dashboard/${id}`, {
+    //     method: 'DELETE',
+    // });
 
-    if (response.ok) {
-        location.reload()
-        console.log('the page was refreshed')
-    } else {
-        alert('Failed to delete project');
-    }
-};
+    // if (response.ok) {
+    //     document.location.replace(`/dashboard`);
+    //     console.log('the page was refreshed')
+    // } else {
+    //     alert('Failed to delete project');
+    // }
 
 
-// document
-//     .querySelector('.project-list')
-//     .addEventListener('click', delButtonHandler);
+
+document
+    .getElementByClass('delete-btn')
+    .addEventListener('click', delButtonHandler);
