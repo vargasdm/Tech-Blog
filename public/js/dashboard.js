@@ -6,12 +6,13 @@ async function submitPost (event)  {
     // Collect values from the post form
     const title = document.querySelector('#post-title').value.trim();
     const content = document.querySelector('#post-content').value.trim();
+    const user_id = userData.id;
     console.log(title);
     if (title && content) {
         // Send a POST request to the API endpoint
         const response = await fetch('/api/post', {
             method: 'POST',
-            body: JSON.stringify({ title, content, }),
+            body: JSON.stringify({ title, content, user_id}),
             headers: { 'Content-Type': 'application/json' },
         });
 
