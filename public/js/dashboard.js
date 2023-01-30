@@ -18,14 +18,6 @@ const delButtonHandler = async (event) => {
 
 let deleteBtns = document.querySelectorAll('.delete-btn')
 for (let i = 0; i < deleteBtns.length; i++) {
-    console.log(deleteBtns[i]);
     deleteBtns[i].addEventListener('click', delButtonHandler);
 }
-console.log(deleteBtns);
 
-// let updateBtns = document.querySelectorAll('.update-btn')
-// for (let i = 0; i < updateBtns.length; i++) {
-//     console.log(updateBtns[i]);
-//     updateBtns[i].addEventListener('click', updateButtonHandler);
-// }
-// console.log(updateBtns);

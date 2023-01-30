@@ -11,12 +11,9 @@ const seedDatabase = async () => {
         individualHooks: true,
         returning: true,
     });
-// I dont know what this is doing ?????
-// do I want it to give every post a random user id?
     for (const post of postData) {
         await Post.create({
             ...post,
-            // user_id: users[Math.floor(Math.random() * users.length)].id,
         });
     }
 

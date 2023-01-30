@@ -10,7 +10,6 @@ router.get('/', async (req, res) => {
         {
           model: User,
           attributes: ['username'],
-
         },
       ],
     });
@@ -41,8 +40,6 @@ router.get('/post/:id', async (req, res) => {
       ],
     });
 
-    console.log({postData})
-
     const post = postData.get({ plain: true });
     console.log(post)
 
@@ -61,7 +58,6 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
-
   res.render('login');
 });
 

@@ -26,4 +26,4 @@ async function submitPost(event) {
 
 document
     .getElementById('post-submit-btn')
-    .addEventListener('click', submitPost);
+    .addEventListener('click', submitPost); 

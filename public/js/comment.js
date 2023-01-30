@@ -6,12 +6,12 @@ const submitComment = async (event) => {
     const content = document.querySelector('#comment-content').value.trim();
     const post_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
-      ];
+    ];
     if (title && content) {
         // Send a POST request to the API endpoint
-        const response = await fetch('/api/comment/', { 
+        const response = await fetch('/api/comment/', {
             method: 'POST',
-            body: JSON.stringify({ title, content, post_id}),
+            body: JSON.stringify({ title, content, post_id }),
             headers: { 'Content-Type': 'application/json' },
         });
 
@@ -26,6 +26,6 @@ const submitComment = async (event) => {
 };
 
 document
-.querySelector('.comment-form')
-.addEventListener('submit', submitComment);
+    .querySelector('.comment-form')
+    .addEventListener('submit', submitComment);
 

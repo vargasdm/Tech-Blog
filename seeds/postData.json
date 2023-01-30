@@ -1,17 +1,17 @@
 [
     {
-        "title": "My Favorite Animal",
-        "content": "My favorite animal is a turtle.",
+        "title": "Heroku",
+        "content": "I use Heroku as a way to deploy my applications",
         "user_id": 1
     },
     {
         "title": "New Career Path",
-        "content": "Today i decided to change my career by signing up for a Full-Stack bootcamp at UNC Charlotte.",
+        "content": "Today I decided to change my career by signing up for a Full-Stack bootcamp at UNC Charlotte.",
         "user_id": 2
     },
     {
-        "title": "I've finally done ",
-        "content": "After training for 6 months I successfully ran a marathon!!",
+        "title": "express-session ",
+        "content": "Express-session is a package dependency that helps you start sessions for your application",
         "user_id": 3
     }
 ]
