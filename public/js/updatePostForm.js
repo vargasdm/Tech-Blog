@@ -3,9 +3,9 @@ const updateButtonHandler = async (event) => {
 
     const title = document.querySelector('#updated-title').value.trim();
     const content = document.querySelector('#updated-content').value.trim();
-    // const post_id =  window.location.toString().split('/')[
-    //     window.location.toString().split('/').length - 1
-    //   ];
+    const post_id =  window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+      ];
     console.log("test")
 
     if (event.target.hasAttribute('data-id')) {
@@ -13,7 +13,7 @@ const updateButtonHandler = async (event) => {
         const id = event.target.getAttribute('data-id');
         const response = await fetch(`/dashboard/edit/${id}`, {
             method: 'PUT',
-            body: JSON.stringify({ title, content }),
+            body: JSON.stringify({ title, content, post_id }),
             headers: { 'Content-Type': 'application/json' },
         });
 
