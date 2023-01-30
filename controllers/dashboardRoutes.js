@@ -37,20 +37,20 @@ router.get('/new', withAuth, async (req, res) => {
 // for update-form.handlebars
 router.get('/edit/:id', withAuth, async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.params.id);
-    // Serialize data so the template can read it
-    const posts = postData.get({ plain: true });
-    res.render('update-form', {posts, logged_in: req.session.loggedIn});
+    // const postData = await Post.findByPk(req.params.id);
+    // // Serialize data so the template can read it
+    // const posts = postData.get({ plain: true });
+    res.render('update-form', {id:req.params.id});
   } catch (err) {
     console.log({error:err})
-    res.status(500).json(err);
+    res.status(500).json(err);s
   }
 });
 
 
 router.put('/edit/:id', withAuth, async (req, res) => {
   try {
-    const updatedPost = await Product.update(req.body, {
+    const updatedPost = await Post.update(req.body, {
       where: {
         id: req.params.id,
       },
