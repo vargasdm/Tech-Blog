@@ -1,7 +1,11 @@
 const updateButtonHandler = async (event) => {
     event.preventDefault();
 
+    const title = document.querySelector('#updated-title').value.trim();
+    const content = document.querySelector('#updated-content').value.trim();
+
     if (event.target.hasAttribute('data-id')) {
+        if (title && content) {
         const id = event.target.getAttribute('data-id');
         const response = await fetch(`/dashboard/edit/${id}`, {
             method: 'PUT',
@@ -16,10 +20,4 @@ const updateButtonHandler = async (event) => {
         }
     };
 };
-
-let updateBtns = document.querySelectorAll('.update-btn')
-for (let i = 0; i < updateBtns.length; i++) {
-    console.log(updateBtns[i]);
-    updateBtns[i].addEventListener('click', updateButtonHandler);
-}
-console.log(updateBtns);
+};
