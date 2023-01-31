@@ -20,7 +20,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-// for post-form.handlebars
+// route to get the post-form.handlebars
 router.get('/new', withAuth, async (req, res) => {
   try {
     res.render('post-form');
@@ -30,7 +30,7 @@ router.get('/new', withAuth, async (req, res) => {
   }
 });
 
-// for update-form.handlebars
+// route to getthe update-form.handlebars
 router.get('/edit/:id', withAuth, async (req, res) => {
   try {
     res.render('update-form', { id: req.params.id });
@@ -40,6 +40,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
   }
 });
 
+// route to update a post
 router.put('/edit/:id', withAuth, async (req, res) => {
   try {
     const updatedPost = await Post.update(req.body, {
@@ -53,6 +54,7 @@ router.put('/edit/:id', withAuth, async (req, res) => {
   }
 });
 
+// route to delete a post
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.destroy({

@@ -2,9 +2,9 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+// route to get all post 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
     const postData = await Post.findAll({
       include: [
         {
@@ -27,6 +27,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// route to get a specific post
 router.get('/post/:id', async (req, res) => {
   console.log(req.params.id);
   try {
@@ -52,6 +53,7 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
+// route for login screen
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.loggedIn) {

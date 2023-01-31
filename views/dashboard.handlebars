@@ -2,15 +2,16 @@
 <div class="row mb-4 project">
     <div class="col-md-5">
         <h3>
+            {{!-- renders post title --}}
             <h3>{{title}}</h3>
+            {{!-- adds a data-id attribute with the same value as the post's id --}}
             <button class="delete-btn" data-id="{{id}}">Delete post</button>
             <button class="update-btn" data-id="{{id}}"><a href="/dashboard/edit/{{id}}">Update post</a></button>
         </h3>
     </div>
     <div class="col-md-7">
-        <p>
-            Date created: {{format_date date_created}}
-        </p>
+        {{!-- Uses format_date helper function on the posts date_created property --}}
+        <p>Date created: {{format_date date_created}}</p>
     </div>
 </div>
 {{/each}}

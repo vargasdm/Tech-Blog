@@ -1,5 +1,4 @@
-
-
+// function to delete a post when the delete post button is clicked
 const delButtonHandler = async (event) => {
     event.preventDefault();
     if (event.target.hasAttribute('data-id')) {
@@ -16,6 +15,7 @@ const delButtonHandler = async (event) => {
     }
 };
 
+// for loop that adds the event listener to each button
 let deleteBtns = document.querySelectorAll('.delete-btn')
 for (let i = 0; i < deleteBtns.length; i++) {
     deleteBtns[i].addEventListener('click', delButtonHandler);

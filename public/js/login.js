@@ -1,3 +1,4 @@
+// function that verifies if the login credentials are correct and cretes a session
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
@@ -22,6 +23,7 @@ const loginFormHandler = async (event) => {
     }
 };
 
+// function that creates a user and a session when they input information
 const signupFormHandler = async (event) => {
     event.preventDefault();
 

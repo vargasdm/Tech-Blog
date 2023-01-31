@@ -1,3 +1,4 @@
+// function that creates a post
 async function submitPost(event) {
     event.preventDefault();
 

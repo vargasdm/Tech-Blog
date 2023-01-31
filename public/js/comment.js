@@ -1,3 +1,4 @@
+// function for creating a comment
 const submitComment = async (event) => {
     event.preventDefault();
 
